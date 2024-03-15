@@ -33,9 +33,9 @@ main (int argc, char **argv)
 {
   /* Check arguments.  */
   long long nbytes;
-  char type[99];
-  char output[99];
-  options(argc, argv, &nbytes, type, output);
+  char *type;
+  char *output;
+  options(argc, argv, &nbytes, &type, &output);
 
   /* If there's no work to do, don't worry about which library to use.  */
   if (nbytes == 0)

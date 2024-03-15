@@ -7,6 +7,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void options(int argc, char **argv, long long *nbytes, char *type, char *output);
+void options(int argc, char **argv, long long *nbytes, char **type, char **output);
 
 #endif 

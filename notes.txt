@@ -1,0 +1,52 @@
+# Notes
+
+The first thing that i tackled was having to restore the git repository.
+I cloned the git repository then ran
+git restore .
+To restore all the original files from the git repository. 
+
+To create a make check function in the Makefile I appended a check option
+to the Makefile that would call randall on a number of cases and return if
+the number of bytes is correct.
+
+Next I proceeded with dissecting the code, I first outsourced the options
+that parsed the arguments. I had to make a function name that abstracted
+this options parsing from randall.c.
+I then proceeded with all the other functions, which were pretty easy to do
+since they were just classes and functions instantiated in randall.c that I
+could easily just put in another file and create a header file for.
+
+After this I went on with option parsing. I read the documentation on the library
+getopt and I kind of ripped of the first example that showed the use case for it.
+I kept on running into the problem of it parsing the last argument incorrectly but
+ended up figuring it out after a while.
+
+I first implemented the input options which modified the algorithm for the random
+number generation either by modifying the input file or modifying the software
+algorithm itself.
+
+I then implemented the output options which modified the output and however many
+bytes to output or to just keep with the standard output.
+
+Here is the output for the test.
+
+16384+0 records in
+16384+0 records out
+134217728 bytes (134 MB, 128 MiB) copied, 0.903998 s, 148 MB/s
+
+real	0m0.907s
+user	0m0.018s
+sys	0m0.884s
+
+real	0m3.998s
+user	0m3.967s
+sys	0m0.015s
+
+real	0m4.128s
+user	0m4.037s
+sys	0m0.247s
+
+real	0m5.711s
+user	0m3.985s
+sys	0m0.132s
+
