@@ -60,22 +60,22 @@ repository-tarball:
 	$(TAR) -czf randall-git.tgz .git
 
 check: randall
-    @echo "Checking 'randall' with various options..."
-    @./randall 1024 | wc -c | grep -q '^1024$$' && \
-        echo "Test passed: 'randall' outputs the correct number of bytes." || \
-        echo "Test failed: 'randall' does not output the correct number of bytes."
-    @./randall -i lrand48_r 1024 | wc -c | grep -q '^1024$$' && \
-        echo "Test passed: 'randall -i lrand48_r' outputs the correct number of bytes." || \
-        echo "Test failed: 'randall -i lrand48_r' does not output the correct number of bytes."
-    @./randall -o stdio 1024 | wc -c | grep -q '^1024$$' && \
-        echo "Test passed: 'randall -o stdio' outputs the correct number of bytes." || \
-        echo "Test failed: 'randall -o stdio' does not output the correct number of bytes."
-    @./randall -o 512 1024 | wc -c | grep -q '^1024$$' && \
-        echo "Test passed: 'randall -o 512' outputs the correct number of bytes." || \
-        echo "Test failed: 'randall -o 512' does not output the correct number of bytes."
-    @./randall -i lrand48_r -o 512 1024 | wc -c | grep -q '^1024$$' && \
-        echo "Test passed: 'randall -i lrand48_r -o 512' outputs the correct number of bytes." || \
-        echo "Test failed: 'randall -i lrand48_r -o 512'does not output the correct number bytes."
+	@echo "Checking 'randall' with various options..."
+	@./randall 1024 | wc -c | grep -q '^1024$$' && \
+		echo "Test passed: 'randall' outputs the correct number of bytes." || \
+		echo "Test failed: 'randall' does not output the correct number of bytes."
+	@./randall -i lrand48_r 1024 | wc -c | grep -q '^1024$$' && \
+		echo "Test passed: 'randall -i lrand48_r' outputs the correct number of bytes." || \
+		echo "Test failed: 'randall -i lrand48_r' does not output correct number of bytes."
+	@./randall -o stdio 1024 | wc -c | grep -q '^1024$$' && \
+		echo "Test passed: 'randall -o stdio' outputs the correct number of bytes." || \
+		echo "Test failed: 'randall -o stdio' does not output the correct number of bytes."
+	@./randall -o 512 1024 | wc -c | grep -q '^1024$$' && \
+		echo "Test passed: 'randall -o 512' outputs the correct number of bytes." || \
+		echo "Test failed: 'randall -o 512' does not output the correct number of bytes."
+	@./randall -i lrand48_r -o 512 1024 | wc -c | grep -q '^1024$$' && \
+		echo "Test passed: 'randall -i lrand48_r -o 512' outputs correct number bytes." || \
+		echo "Test failed: 'randall -i lrand48_r -o 512' does not output the correct bytes."
 
 .PHONY: default clean assignment submission-tarball repository-tarball check
 
